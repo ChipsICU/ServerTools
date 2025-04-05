@@ -15,6 +15,11 @@ python v2ray/ss2v2ray.py
 ```
 ~/v2ray/v2ray run -config ~/v2ray/config.json
 ```
+4. Check if v2ray is running
+```
+curl -x socks5h://127.0.0.1:10808 -I http://www.google.com
+```
+5. Use [this website](https://ip.chinaz.com/) to find your url's real ip(sometimes they will change IP for security)
 
 ## cuda
 Follow the steps([English](https://stackoverflow.com/questions/39379792/install-cuda-without-root)/[Chinese](https://zhuanlan.zhihu.com/p/198161777)) to install cuda without root.
