@@ -38,7 +38,7 @@ def generate_v2ray_config(servers, use_dns):
     config = {
         "inbounds": [
             {
-                "port": 1080,
+                "port": 10808,
                 "listen": "127.0.0.1",
                 "protocol": "socks",
                 "settings": {
