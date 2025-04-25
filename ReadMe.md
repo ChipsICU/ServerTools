@@ -41,6 +41,13 @@ export all_proxy="http://127.0.0.1:7897"
 3. Check if v2ray is running
 ```bash
 curl -x http://127.0.0.1:7897 -I http://www.google.com
+
 ```
 ## cuda
 Follow the steps([English](https://stackoverflow.com/questions/39379792/install-cuda-without-root)/[Chinese](https://zhuanlan.zhihu.com/p/198161777)) to install cuda without root.
+
+## Install  
+aria2c can be installed in conda, **Conda** you're so niubility!
+```bash
+conda install -c bioconda aria2
+```
