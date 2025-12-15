@@ -24,6 +24,29 @@ curl -x socks5h://127.0.0.1:10808 -I http://www.google.com
 ```
 5. Use [this website](https://ip.chinaz.com/) to find your url's real ip(sometimes they will change IP for security)
 
+### docker proxy
+
+1. 在 systemd 为 docker 创建 drop-in 目录并新建配置文件
+```bash
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
+```
+
+2. 
+```yaml
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:8889/"
+Environment="HTTPS_PROXY=http://127.0.0.1:8889/"
+Environment="NO_PROXY=localhost,127.0.0.1,*.docker.io,*.docker.com,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+```
+
+3. 重新加载 systemd 配置并重启 docker，使代理配置生效
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+sudo systemctl show --property=Environment docker # check if set proxy successfully!
+```
+
 ### use local proxy as transfer
 
 For example, if you use clash on your local device, follow this step by step.
